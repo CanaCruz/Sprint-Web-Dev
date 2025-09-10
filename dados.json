@@ -1,0 +1,7 @@
+{
+  "seguidores": [5000, 5600, 6200, 6900, 7600],
+  "jogadoras": [
+    { "nome": "Lia Santos", "posicao": "Atacante" },
+    { "nome": "Marina Faria", "posicao": "Meia" }
+  ]
+}

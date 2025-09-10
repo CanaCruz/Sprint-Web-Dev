@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passa a Bola - Projeto Web</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>⚽ Passa a Bola</h1>
+    <nav>
+      <button onclick="mostrar('dashboard')">📊 Dashboard</button>
+      <button onclick="mostrar('jogadoras')">👥 Jogadoras</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="dashboard" class="ativo">
+      <h2>Dashboard</h2>
+      <p>Total de seguidores: <span id="total"></span></p>
+      <canvas id="grafico"></canvas>
+    </section>
+
+    <section id="jogadoras">
+      <h2>Jogadoras</h2>
+      <ul id="lista"></ul>
+
+      <h3>Adicionar jogadora</h3>
+      <input id="nome" placeholder="👤 Nome da jogadora">
+      <input id="posicao" placeholder="⚽ Posição">
+      <button onclick="adicionarJogadora()">➕ Adicionar Jogadora</button>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
