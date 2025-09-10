@@ -170,6 +170,11 @@ Para dúvidas ou problemas:
 3. **Confirme o localStorage** está habilitado
 4. **Verifique as dependências** estão carregando
 
+## 👥 Desenvolvedores
+
+- **Arthur Canaverde** - RM: 563029
+- **Lucas Zago** - RM: 562028
+
 ## 📄 Licença
 
 Este projeto foi desenvolvido para fins educacionais e de demonstração.
