@@ -213,11 +213,11 @@ section.ativo {
 }
 
 #lista li {
-  background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
+  background: var(--gray-800);
   margin: 0;
   padding: 1.25rem;
   border-radius: var(--radius-lg);
-  border-left: 4px solid var(--primary-color);
+  border: 1px solid var(--gray-700);
   box-shadow: var(--shadow);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -239,7 +239,7 @@ section.ativo {
 #lista li:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
-  border-left-color: var(--secondary-color);
+  border-color: var(--secondary-color);
 }
 
 #lista li:hover::before {
@@ -772,53 +772,62 @@ section.ativo {
 /* Estilos para lista de jogadoras melhorada */
 .jogadora-item {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid var(--gray-200);
+  flex-direction: column;
+  background: var(--gray-800);
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  margin-bottom: 0.75rem;
+  position: relative;
+  border: 1px solid var(--gray-700);
 }
 
 .jogadora-item:last-child {
-  border-bottom: none;
+  margin-bottom: 0;
 }
 
 .jogadora-nome {
   font-weight: 600;
-  color: var(--gray-800);
-  flex: 1;
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .jogadora-posicao {
-  color: var(--gray-600);
-  margin: 0 1rem;
+  color: var(--gray-300);
   font-size: 0.875rem;
-  background: var(--gray-100);
+  background: var(--gray-700);
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius);
+  display: inline-block;
+  width: fit-content;
 }
 
 .btn-remover {
-  background: var(--error-color);
-  color: white;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  color: var(--gray-400);
   border: none;
-  padding: 0.25rem 0.5rem;
-  border-radius: var(--radius);
   cursor: pointer;
-  font-size: 0.75rem;
+  font-size: 1rem;
   transition: all 0.3s ease;
-  opacity: 0.8;
-  min-width: 32px;
-  height: 28px;
+  opacity: 0.7;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: var(--radius);
 }
 
 .btn-remover:hover {
   opacity: 1;
-  background: #dc2626;
+  color: var(--error-color);
+  background: rgba(239, 68, 68, 0.1);
   transform: scale(1.1);
 }
+
 
 /* Melhorias na navegação */
 nav button {
