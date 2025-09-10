@@ -413,14 +413,22 @@ async function atualizarDadosExternos() {
 }
 
 // Inicializar quando a página carregar
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', function() {
-    // Código já está sendo executado nos event listeners acima
-  });
-} else {
-  // Página já carregou
-  if (authManager.currentUser) {
-    carregarDashboard();
-    carregarJogadoras();
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM carregado, inicializando sistema...');
+  
+  // Verificar se os elementos existem
+  const loginContainer = document.getElementById('login-container');
+  const mainContent = document.getElementById('main-content');
+  
+  if (!loginContainer || !mainContent) {
+    console.error('Elementos não encontrados!');
+    return;
   }
-}
+  
+  console.log('Sistema inicializado com sucesso!');
+});
+
+// Debug: verificar se o sistema está funcionando
+console.log('Script carregado!');
+console.log('AuthManager:', typeof AuthManager);
+console.log('DataManager:', typeof DataManager);
