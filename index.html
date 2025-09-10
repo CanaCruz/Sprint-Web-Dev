@@ -18,25 +18,49 @@
     </nav>
   </header>
 
-  <main>
+  <!-- Sistema de Login -->
+  <div id="login-container" class="login-container">
+    <div class="login-card">
+      <h2>🔐 Login</h2>
+      <form id="login-form">
+        <input type="text" id="username" placeholder="👤 Usuário" required>
+        <input type="password" id="password" placeholder="🔒 Senha" required>
+        <button type="submit">Entrar</button>
+      </form>
+      <p class="login-error" id="login-error"></p>
+    </div>
+  </div>
+
+  <!-- Conteúdo Principal (após login) -->
+  <main id="main-content" style="display: none;">
     <section id="dashboard" class="ativo">
-      <h2>Dashboard</h2>
+      <h2>📊 Dashboard</h2>
       <p>Total de seguidores: <span id="total"></span></p>
       <canvas id="grafico"></canvas>
     </section>
 
     <section id="jogadoras">
-      <h2>Jogadoras</h2>
+      <h2>👥 Jogadoras</h2>
       <ul id="lista"></ul>
 
-      <h3>Adicionar jogadora</h3>
+      <h3>➕ Adicionar jogadora</h3>
       <input id="nome" placeholder="👤 Nome da jogadora">
       <input id="posicao" placeholder="⚽ Posição">
       <button onclick="adicionarJogadora()">➕ Adicionar Jogadora</button>
+    </section>
+
+    <section id="configuracoes">
+      <h2>⚙️ Configurações</h2>
+      <div class="config-section">
+        <h3>🔐 Conta</h3>
+        <p>Usuário: <span id="current-user"></span></p>
+        <button onclick="logout()" class="logout-btn">Sair</button>
+      </div>
     </section>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
+  <script src="tests.js"></script>
 </body>
 </html>
