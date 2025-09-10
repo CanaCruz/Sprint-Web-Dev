@@ -7,34 +7,97 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3.0">
 </head>
 <body>
-  <header>
-    <h1>⚽ Passa a Bola</h1>
-    <nav>
-      <button onclick="mostrar('dashboard')">📊 Dashboard</button>
-      <button onclick="mostrar('jogadoras')">👥 Jogadoras</button>
-    </nav>
-  </header>
+  <!-- Sistema de Login -->
+  <div id="login-container" class="login-container">
+    <div class="login-card">
+      <h2>🔐 Login</h2>
+      <form id="login-form">
+        <input type="text" id="username" placeholder="👤 Usuário" required>
+        <input type="password" id="password" placeholder="🔒 Senha" required>
+        <button type="submit">Entrar</button>
+        <div id="login-error" class="login-error"></div>
+      </form>
+      <div class="login-info">
+        <p><strong>Credenciais de teste:</strong></p>
+        <p>👤 admin | 🔒 123456</p>
+        <p>👤 user | 🔒 password</p>
+        <p>👤 teste | 🔒 teste123</p>
+      </div>
+    </div>
+  </div>
 
-  <main>
-    <section id="dashboard" class="ativo">
-      <h2>Dashboard</h2>
-      <p>Total de seguidores: <span id="total"></span></p>
-      <canvas id="grafico"></canvas>
-    </section>
+  <!-- Conteúdo Principal -->
+  <div id="main-content" style="display: none;">
+    <header>
+      <h1>⚽ Passa a Bola</h1>
+      <nav>
+        <button onclick="mostrar('dashboard')">📊 Dashboard</button>
+        <button onclick="mostrar('jogadoras')">👥 Jogadoras</button>
+        <button onclick="mostrar('configuracoes')">⚙️ Configurações</button>
+      </nav>
+    </header>
 
-    <section id="jogadoras">
-      <h2>Jogadoras</h2>
-      <ul id="lista"></ul>
+    <main>
+      <section id="dashboard" class="ativo">
+        <h2>📊 Dashboard</h2>
+        <div class="dashboard-stats">
+          <div class="stat-card">
+            <h3>Total de Seguidores</h3>
+            <p id="total" class="stat-number">0</p>
+          </div>
+          <div class="stat-card">
+            <h3>Jogadoras Cadastradas</h3>
+            <p id="total-jogadoras" class="stat-number">0</p>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="grafico"></canvas>
+        </div>
+        <button onclick="atualizarDadosExternos()" class="btn-update">🔄 Atualizar Dados</button>
+      </section>
 
-      <h3>Adicionar jogadora</h3>
-      <input id="nome" placeholder="👤 Nome da jogadora">
-      <input id="posicao" placeholder="⚽ Posição">
-      <button onclick="adicionarJogadora()">➕ Adicionar Jogadora</button>
-    </section>
-  </main>
+      <section id="jogadoras">
+        <h2>👥 Jogadoras</h2>
+        <div class="jogadoras-container">
+          <ul id="lista" class="jogadoras-list"></ul>
+          
+          <div class="add-jogadora-form">
+            <h3>➕ Adicionar Nova Jogadora</h3>
+            <div class="form-group">
+              <input id="nome" placeholder="👤 Nome da jogadora" required>
+              <input id="posicao" placeholder="⚽ Posição (ex: Atacante, Meia, Zagueira)" required>
+              <button onclick="adicionarJogadora()" class="btn-add">➕ Adicionar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="configuracoes">
+        <h2>⚙️ Configurações</h2>
+        <div class="config-section">
+          <h3>👤 Usuário Logado</h3>
+          <p>Bem-vindo, <strong id="current-user">Usuário</strong>!</p>
+          <button id="logout-btn" class="logout-btn">🚪 Logout</button>
+        </div>
+        
+        <div class="config-section">
+          <h3>📊 Dados</h3>
+          <p>Os dados são salvos automaticamente no seu navegador.</p>
+          <button onclick="exportarDados()" class="btn-export">📥 Exportar Dados</button>
+          <button onclick="importarDados()" class="btn-import">📤 Importar Dados</button>
+        </div>
+        
+        <div class="config-section">
+          <h3>ℹ️ Sobre</h3>
+          <p><strong>Passa a Bola</strong> - Sistema de gerenciamento de jogadoras</p>
+          <p>Versão 2.0 - Desenvolvido com ❤️</p>
+        </div>
+      </section>
+    </main>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
